@@ -1,3 +1,9 @@
 config TEST
 	bool
 	default y
+
+config EXAMPLE_TEST
+	bool
+	depends on TEST
+	default y
+
