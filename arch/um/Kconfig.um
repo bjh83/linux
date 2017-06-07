@@ -120,3 +120,5 @@ config SECCOMP
 	  defined by each seccomp mode.
 
 	  If unsure, say Y.
+
+source "test/Kconfig"
