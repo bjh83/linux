@@ -1259,3 +1259,9 @@ config I2C_OPAL
 	  called as i2c-opal.
 
 endmenu
+
+config I2C_MOCK
+	bool "I2C mock"
+	depends on TEST
+	default y
+
