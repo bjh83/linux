@@ -363,6 +363,19 @@ struct hwmon_chip_info {
 	const struct hwmon_channel_info **info;
 };
 
+extern struct class hwmon_class;
+
+struct hwmon_device {
+	const char *name;
+	struct device dev;
+	const struct hwmon_chip_info *chip;
+
+	struct attribute_group group;
+	const struct attribute_group **groups;
+};
+
+#define to_hwmon_device(d) container_of(d, struct hwmon_device, dev)
+
 /* hwmon_device_register() is deprecated */
 struct device *hwmon_device_register(struct device *dev);
 

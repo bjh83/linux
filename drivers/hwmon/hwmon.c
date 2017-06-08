@@ -27,17 +27,6 @@
 #define HWMON_ID_PREFIX "hwmon"
 #define HWMON_ID_FORMAT HWMON_ID_PREFIX "%d"
 
-struct hwmon_device {
-	const char *name;
-	struct device dev;
-	const struct hwmon_chip_info *chip;
-
-	struct attribute_group group;
-	const struct attribute_group **groups;
-};
-
-#define to_hwmon_device(d) container_of(d, struct hwmon_device, dev)
-
 #define MAX_SYSFS_ATTR_NAME_LENGTH	32
 
 struct hwmon_device_attribute {
@@ -100,7 +89,7 @@ static void hwmon_dev_release(struct device *dev)
 	kfree(to_hwmon_device(dev));
 }
 
-static struct class hwmon_class = {
+struct class hwmon_class = {
 	.name = "hwmon",
 	.owner = THIS_MODULE,
 	.dev_groups = hwmon_dev_attr_groups,
