@@ -18,8 +18,11 @@ config MMU
 	bool
 	default y
 
-config NO_IOMEM
-	def_bool y
+source "arch/um/mm/Kconfig"
+
+config HAS_IOMEM
+	bool
+	select MOCK_IOMEM
 
 config ISA
 	bool

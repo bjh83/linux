@@ -1,0 +1,3 @@
+config MOCK_IOMEM
+	bool "A mock IOMEM implementation"
+	depends on HAS_IOMEM
