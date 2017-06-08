@@ -1016,6 +1016,10 @@ config SENSORS_LM75
 	  This driver can also be built as a module.  If so, the module
 	  will be called lm75.
 
+config SENSORS_LM75_TEST
+	bool "Test for National Semiconductor LM75 and compatibles"
+	depends on I2C && I2C_MOCK && TEST && SENSORS_LM75
+
 config SENSORS_LM77
 	tristate "National Semiconductor LM77"
 	depends on I2C
