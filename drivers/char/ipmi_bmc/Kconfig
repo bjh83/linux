@@ -1,0 +1,22 @@
+#
+# IPMI BMC configuration
+#
+
+menuconfig IPMI_BMC
+	tristate 'IPMI BMC core'
+	help
+	  This enables the BMC-side IPMI drivers.
+
+	  If unsure, say N.
+
+if IPMI_BMC
+
+config IPMI_BMC_BT_I2C
+	depends on I2C
+	select I2C_SLAVE
+	tristate 'Generic I2C BT IPMI BMC driver'
+	help
+	  Provides a driver that uses IPMI Block Transfer messages and
+	  semantics on top of plain old I2C.
+
+endif # IPMI_BMC
