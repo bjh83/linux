@@ -79,6 +79,10 @@ config IPMI_POWEROFF
          This enables a function to power off the system with IPMI if
 	 the IPMI management controller is capable of this.
 
+config IPMI_BT_I2C
+	select I2C
+	tristate 'BT IPMI bmc driver over I2c'
+
 endif # IPMI_HANDLER
 
 config ASPEED_BT_IPMI_BMC
