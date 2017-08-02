@@ -84,12 +84,3 @@ config IPMI_BT_I2C
 	tristate 'BT IPMI bmc driver over I2c'
 
 endif # IPMI_HANDLER
-
-config ASPEED_BT_IPMI_BMC
-	depends on ARCH_ASPEED || COMPILE_TEST
-       depends on REGMAP && REGMAP_MMIO && MFD_SYSCON
-	tristate "BT IPMI bmc driver"
-	help
-	  Provides a driver for the BT (Block Transfer) IPMI interface
-	  found on Aspeed SOCs (AST2400 and AST2500). The driver
-	  implements the BMC side of the BT interface.
