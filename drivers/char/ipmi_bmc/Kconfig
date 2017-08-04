@@ -11,6 +11,12 @@ menuconfig IPMI_BMC
 
 if IPMI_BMC
 
+config IPMI_BMC_DEVICE_INTERFACE
+	tristate 'Device interface for BMC-side IPMI'
+	help
+	  This provides a file interface to the IPMI BMC core so userland
+	  processes may use IPMI.
+
 config IPMI_BMC_BT_I2C
 	depends on I2C
 	select I2C_SLAVE
