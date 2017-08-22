@@ -45,4 +45,21 @@ config ARCH_NPCM750
 
 	  Nuvoton NPCM750 BMC based on the Cortex A9.
 
+comment "NPCM7XX Machines"
+
+config MACH_NPCM750
+	depends on ARCH_NPCM && ARCH_NPCM750
+	bool "Nuvoton NPCM750 Machine"
+	help
+	  Nuvoton NPCM750 Machine
+
+config NPCM750_PCI
+	depends on ARCH_NPCM
+	bool "Nuvoton NPCM750 PCI support"
+	default n
+	select PCI
+	select PCI_MSI
+	help
+	  NPCM750 PCIe Root Complex support.
+
 endif
